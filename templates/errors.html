@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>System Errors</h3>
+
+{% if errors %}
+    <ul>
+        {% for key, error in errors.items() %}
+            <li>
+                <strong>Error Date:</strong> {{ error.error_date }} <br>
+                <strong>Error Time:</strong> {{ error.error_time }} <br>
+                <strong>Error Message:</strong> {{ error.error_message }} <br>
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No system errors found.</p>
+{% endif %}
+{% endblock %}

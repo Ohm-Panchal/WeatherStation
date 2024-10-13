@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Weather History for {{ location }}</h3>
+
+<form method="POST" action="/history">
+    <label for="location">Enter Location (City or Area):</label>
+    <input type="text" id="location" name="location" placeholder="Enter city or area (e.g., Ahmedabad, SKJ)" required>
+    <button type="submit">Search</button>
+</form>
+
+{% if history %}
+    <ul>
+        {% for key, data in history.items() %}
+            <li>
+                <strong>Date:</strong> {{ data.date }} <br>
+                <strong>Time:</strong> {{ data.time }} <br>
+                <strong>Temperature:</strong> {{ data.temperature }} <br>
+                <strong>Humidity:</strong> {{ data.humidity }} <br>
+                <strong>Wind Speed:</strong> {{ data.wind_speed }} <br>
+                <strong>Air Quality:</strong> {{ data.air_quality }} <br>
+                <strong>Daylight:</strong> {{ data.day_light }} <br>
+                <strong>Day Type:</strong> {{ data.day_type }} <br>
+                <strong>Rain:</strong> {{ data.rain }} <br>
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No weather history data available for {{ location }}.</p>
+{% endif %}
+{% endblock %}

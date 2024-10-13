@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Weather Data - {{ location }}</h3>
+
+<form method="POST" action="/">
+    <label for="location">Enter Location (City or Area):</label>
+    <input type="text" id="location" name="location" placeholder="Enter city or area (e.g., Ahmedabad, SKJ)" required>
+    <button type="submit">Search</button>
+</form>
+
+{% if weather %}
+    <ul>
+        <li>Location: {{ weather.location }}</li>
+        <li>Date: {{ weather.date }}</li>
+        <li>Time: {{ weather.time }}</li>
+        <li>Temperature: {{ weather.temperature }}</li>
+        <li>Humidity: {{ weather.humidity }}</li>
+        <li>Wind Speed: {{ weather.wind_speed }}</li>
+        <li>Air Quality: {{ weather.air_quality }}</li>
+        <li>Daylight: {{ weather.day_light }}</li>
+        <li>Day Type: {{ weather.day_type }}</li>
+        <li>Rain: {{ weather.rain }}</li>
+    </ul>
+{% else %}
+    <p>No weather data available for {{ location }}.</p>
+{% endif %}
+{% endblock %}

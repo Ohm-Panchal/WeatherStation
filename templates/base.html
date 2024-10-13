@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Station</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Station Dashboard</h1>
+        <nav>
+            <a href="/" class="btn btn-primary">Current Weather</a>
+            <a href="/history" class="btn btn-secondary">Weather History</a>
+            <a href="/errors" class="btn btn-danger">System Errors</a>
+        </nav>
+        <hr>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
